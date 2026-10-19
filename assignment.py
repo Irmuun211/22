@@ -10,15 +10,18 @@ def save_scores(names, scores, filename):
 def average_score(filename):
     file = open(filename, "r")
     lst  = file.readlines()
+    c=0
     if lst == []:
         file.close()
         return 0
     else:
         s=0
         for i in range(len(lst)):
-            a = lst[i].split(",")
-            s += int(a[1])
-        s = s/len(lst)
+            if lst[i]!="":
+                a = lst[i].split(",")
+                s += int(a[1])
+                c+=1
+        s = s/c
         file.close()
         return round(s,1)
 
