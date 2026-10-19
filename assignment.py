@@ -59,7 +59,7 @@ def remove_line(filename, line_number):
     file = open(filename, "r")
     lst = file.readlines()
     file.close()
-    if len(lst) < line_number:
+    if len(lst) < line_number or line_number<1:
         return False
     else:
         file = open(filename, "w")
